@@ -1,0 +1,29 @@
+    <form nz-form nzLayout="inline" [formGroup]="formCambio" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por Favor ingresa una cantidad">
+            <nz-input-group nzPrefixIcon="dollar">
+              <input type="number" formControlName="cantidad" nz-input placeholder="ingrese la cantidad a cambiar" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por favor selecciona una moneda">
+            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Selecciona una Moneda" formControlName="moneda1">
+              <nz-option *ngFor="let moneda of monedas$ | async" [nzLabel]="moneda" [nzValue]="moneda"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label>: :A:</nz-form-label>
+            <nz-form-control nzErrorTip="Por favor selecciona una o más monedas">
+              <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Selecciona una Moneda" formControlName="moneda2">
+                <nz-option *ngFor="let moneda of monedas$ | async" [nzLabel]="moneda" [nzValue]="moneda"></nz-option>
+              </nz-select>
+                  </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+          <nz-form-control>
+            <button nz-button type="submit" nzType="primary" [disabled]="!formCambio.valid">Calcular</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>

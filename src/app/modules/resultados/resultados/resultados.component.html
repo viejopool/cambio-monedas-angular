@@ -1,0 +1,7 @@
+<div *ngIf="cotizacion$ |async as cotizacion"  >
+  <nz-card style="width:300px;" nzTitle="Detalle Cotización" >
+      <p>{{cotizacion.base_code}} a {{cotizacion.target_code}}</p>
+      <p class="rojo">{{cotizacion.conversion_result | currency:cotizacion.target_code:'code'}}</p>
+      <div>{{cotizacion.time_last_update_utc | date:'short'}}</div>
+    </nz-card>
+</div>
